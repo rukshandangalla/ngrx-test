@@ -1,0 +1,6 @@
+.steps-wrapper{
+  width: 100%;
+}
+.ui-steps .ui-steps-item {
+    width: 25%;
+}

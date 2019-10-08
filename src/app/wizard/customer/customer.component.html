@@ -1,0 +1,20 @@
+<p-fieldset legend="Validate Customer">
+	<div class="ui-g">
+		<div class="ui-g-12">
+			<div class="ui-g-4">
+				<span class="ui-float-label">
+              <input  [(ngModel)]="selectedNic" id="float-input" type="text" size="30" pInputText> 
+              <label for="float-input">NIC</label>
+          </span>
+        </div>
+        <div class="ui-g-1">
+          <p-button (click)="onNicSearch($event)" label="Search"></p-button>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g">
+      <div class="ui-g-12">
+        
+      </div>
+    </div>
+	</p-fieldset>
