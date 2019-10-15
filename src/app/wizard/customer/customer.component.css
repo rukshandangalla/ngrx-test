@@ -1,7 +1,11 @@
-.search-input{
+.search-input {
   float: left;
 }
-.search-btn{
+.search-btn {
   float: left;
   margin-left: 5px;
+}
+.highlighted-text {
+  color: #2196f3;
+  font-weight: bold;
 }

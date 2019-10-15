@@ -4,6 +4,17 @@ import { Store, select } from '@ngrx/store';
 
 import { Customer } from '../../shared/models/customer';
 import { AppState } from 'src/app/shared/models/app-state';
+import { SearchCustomerAction, ResetCustomerAction } from '../actions/customer.actions';
+
+const customerSelector = state => state.selectedCustomer;
+
+// const selectCustomer = (customerList, selectedNic) => ({
+//   type: 'SEARCH',
+//   payload: customerList.find(cl => cl.nic === selectedNic)
+// });
+// const resetCustomer = () => ({
+//   type: 'RESET'
+// });
 
 @Component({
   selector: 'app-customer',
@@ -11,46 +22,52 @@ import { AppState } from 'src/app/shared/models/app-state';
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+  selectedCustomer: Observable<Customer>;
   selectedNic: string;
   customerList: Customer[] = [
     {
-      fName: 'Customer 1 fName',
-      lName: 'Customer 1 lName',
+      fName: 'Rukshan',
+      lName: 'Dangalla',
       age: 25,
       nic: '1V',
-      address: 'Customer 1 address'
+      address: 'Maharagama'
     },
     {
-      fName: 'Customer 2 fName',
-      lName: 'Customer 2 lName',
+      fName: 'Maheesha',
+      lName: 'Prasadi',
       age: 27,
       nic: '2V',
-      address: 'Customer 1 address'
+      address: 'Boralasgamuwa'
     },
     {
-      fName: 'Customer 3 fName',
-      lName: 'Customer 3 lName',
+      fName: 'Chathuranga',
+      lName: 'Basnayake',
       age: 23,
       nic: '3V',
-      address: 'Customer 3 address'
+      address: 'Homagama'
     },
     {
-      fName: 'Customer 4 fName',
-      lName: 'Customer 4 lName',
+      fName: 'Pubudu',
+      lName: 'Chathuranga',
       age: 27,
       nic: '4V',
-      address: 'Customer 4 address'
+      address: 'Nugegoda'
     }
   ];
 
-  constructor(private store: Store<AppState>) {}
+  constructor(private store: Store<AppState>) {
+    this.selectedCustomer = this.store.select(customerSelector);
+  }
 
   ngOnInit() {}
 
   onNicSearch(): void {
-    this.store.dispatch({
-      type: 'ADD',
-      payload: this.customerList.find(cl => cl.nic === this.selectedNic)
-    });
+    // this.store.dispatch(selectCustomer(this.customerList, this.selectedNic));
+    const customer = this.customerList.find(cl => cl.nic === this.selectedNic);
+    this.store.dispatch(new SearchCustomerAction(customer));
+  }
+
+  onReset() {
+    this.store.dispatch(new ResetCustomerAction());
   }
 }

@@ -6,6 +6,8 @@ import { Customer } from '../../shared/models/customer';
 import { ArticleMainType } from '../../shared/models/article-main-type';
 import { AppState } from 'src/app/shared/models/app-state';
 
+const customerSelector = state => state.selectedCustomer;
+
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -17,7 +19,7 @@ export class ArticleComponent implements OnInit {
   selectedCustomer: Observable<Customer>;
 
   constructor(private store: Store<AppState>) {
-    this.selectedCustomer = this.store.select('customer');
+    this.selectedCustomer = this.store.select(customerSelector);
   }
 
   ngOnInit() {

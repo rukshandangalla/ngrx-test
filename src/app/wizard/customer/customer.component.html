@@ -6,9 +6,31 @@
         <label for="float-input">NIC</label>
       </span>
       <button icon="pi pi-search" (click)="onNicSearch()" pButton type="button" class="ui-button-raised search-btn"></button>
+      <button (click)="onReset()" label="Reset" pButton type="button" class="ui-button-raised ui-button-secondary search-btn"></button>
     </div>
   </div>
   <div class="ui-g">
-    <div class="ui-g-12"></div>
+    <div class="ui-g-12">
+      <table *ngIf="selectedCustomer | async">
+        <tr>
+          <td>Name:</td>
+          <td>
+            <span class="highlighted-text">{{ (selectedCustomer | async)?.fName }} {{ (selectedCustomer | async)?.lName }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>NIC:</td>
+          <td>
+            <span class="highlighted-text">{{ (selectedCustomer | async)?.nic }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>
+            <span class="highlighted-text">{{ (selectedCustomer | async)?.address }}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
   </div>
 </p-fieldset>
