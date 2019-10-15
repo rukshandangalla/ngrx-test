@@ -7,6 +7,8 @@ import { ArticleMainType } from '../../shared/models/article-main-type';
 import { WizardState } from 'src/app/shared/models/wizard-state';
 import { getCustomer } from '../wizard.selector';
 
+import { AddArticleAction } from '../actions/article.actions';
+
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
@@ -60,5 +62,9 @@ export class ArticleComponent implements OnInit {
         isActive: true
       }
     ];
+  }
+
+  onArticleChange(evt: any) {
+    this.store.dispatch(new AddArticleAction(evt.value));
   }
 }

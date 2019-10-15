@@ -12,7 +12,10 @@ import { TermsComponent } from './terms/terms.component';
 import { SummaryComponent } from './summary/summary.component';
 
 import { WizardState } from '../shared/models/wizard-state';
+
 import { CustomerReducer } from './reducers/customer.reducer';
+import { ArticleReducer } from './reducers/article.reducer';
+import { ProductReducer } from './reducers/product.reducer';
 
 const wizardRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -22,7 +25,9 @@ const wizardRouting: ModuleWithProviders = RouterModule.forChild([
 ]);
 
 export const reducers: ActionReducerMap<WizardState> = {
-  selectedCustomer: CustomerReducer
+  selectedCustomer: CustomerReducer,
+  selectedArticle: ArticleReducer,
+  selectedProduct: ProductReducer
 };
 
 @NgModule({

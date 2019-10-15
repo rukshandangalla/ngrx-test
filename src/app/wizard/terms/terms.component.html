@@ -1,10 +1,12 @@
 <p-fieldset legend="Terms & Conditions">
-    <div class="ui-g" *ngIf="selectedCustomer | async">
-      <div class="ui-g-12">
-        Name: <span class="highlighted-text">{{ (selectedCustomer | async)?.fName }} {{ (selectedCustomer | async)?.lName }} ({{ (selectedCustomer | async)?.nic }})</span>
-      </div>
+  <div class="ui-g" *ngIf="selectedCustomer | async">
+    <div class="ui-g-12">
+      Name: <span class="highlighted-text">{{ (selectedCustomer | async)?.fName }} {{ (selectedCustomer | async)?.lName }} ({{ (selectedCustomer | async)?.nic }})</span>
     </div>
-    <div class="ui-g">
-      <div class="ui-g-12"></div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <p-dropdown placeholder="Select Product" [options]="products" optionLabel="name" (onChange)="onProductChange($event)"></p-dropdown>
     </div>
-  </p-fieldset>
+  </div>
+</p-fieldset>

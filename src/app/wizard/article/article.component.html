@@ -6,7 +6,7 @@
   </div>
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-dropdown placeholder="Select Article" [options]="articleMainTypes" optionLabel="description"></p-dropdown>
+      <p-dropdown placeholder="Select Article" [options]="articleMainTypes" optionLabel="description" (onChange)="onArticleChange($event)"></p-dropdown>
     </div>
   </div>
 </p-fieldset>

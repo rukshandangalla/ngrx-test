@@ -5,15 +5,9 @@ import { Store, select } from '@ngrx/store';
 import { Customer } from '../../shared/models/customer';
 import { WizardState } from 'src/app/shared/models/wizard-state';
 import { SearchCustomerAction, ResetCustomerAction } from '../actions/customer.actions';
-import { getCustomer } from '../wizard.selector';
+import { ResetArticleAction } from '../actions/article.actions';
 
-// const selectCustomer = (customerList, selectedNic) => ({
-//   type: 'SEARCH',
-//   payload: customerList.find(cl => cl.nic === selectedNic)
-// });
-// const resetCustomer = () => ({
-//   type: 'RESET'
-// });
+import { getCustomer } from '../wizard.selector';
 
 @Component({
   selector: 'app-customer',
@@ -61,12 +55,14 @@ export class CustomerComponent implements OnInit {
   ngOnInit() {}
 
   onNicSearch(): void {
-    // this.store.dispatch(selectCustomer(this.customerList, this.selectedNic));
     const customer = this.customerList.find(cl => cl.nic === this.selectedNic);
     this.store.dispatch(new SearchCustomerAction(customer));
   }
 
   onReset() {
+    this.selectedNic = '';
+
     this.store.dispatch(new ResetCustomerAction());
+    this.store.dispatch(new ResetArticleAction());
   }
 }
