@@ -4,7 +4,6 @@ import { Store, select } from '@ngrx/store';
 
 import { Customer } from '../../shared/models/customer';
 import { AppState } from 'src/app/shared/models/app-state';
-//import { SelectCustomer } from "../../shared/actions/wizard.actions";
 
 @Component({
   selector: 'app-customer',
