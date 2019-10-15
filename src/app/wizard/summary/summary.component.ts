@@ -24,6 +24,10 @@ export class SummaryComponent implements OnInit {
     this.selectedCustomer = this.store.select(getCustomer);
     this.selectedArticle = this.store.select(getArticle);
     this.selectedProduct = this.store.select(getProduct);
+
+    // this.store.subscribe(data => {
+    //   console.log(data);
+    // });
   }
 
   ngOnInit() {}

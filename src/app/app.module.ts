@@ -2,7 +2,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { StoreModule, ActionReducerMap } from '@ngrx/store';
+
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,11 +21,13 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot(
   { useHash: true }
 );
 
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
     StoreModule.forRoot({}),
+    StoreDevtoolsModule.instrument({
+      maxAge: 5
+    }),
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

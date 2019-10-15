@@ -63,6 +63,6 @@ export class CustomerComponent implements OnInit {
     this.selectedNic = '';
 
     this.store.dispatch(new ResetCustomerAction());
-    this.store.dispatch(new ResetArticleAction());
+    // this.store.dispatch(new ResetArticleAction());
   }
 }
