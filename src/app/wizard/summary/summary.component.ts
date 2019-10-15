@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+
+import { WizardState } from 'src/app/shared/models/wizard-state';
+import { Customer } from 'src/app/shared/models/customer';
+import { getCustomer } from '../wizard.selector';
 
 @Component({
   selector: 'app-summary',
@@ -7,9 +13,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SummaryComponent implements OnInit {
 
-  constructor() { }
+  selectedCustomer: Observable<Customer>;
 
-  ngOnInit() {
+  constructor(private store: Store<WizardState>) {
+    this.selectedCustomer = this.store.select(getCustomer);
   }
 
+  ngOnInit() {}
 }

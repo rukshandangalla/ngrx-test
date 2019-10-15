@@ -11,8 +11,8 @@ import { ArticleComponent } from './article/article.component';
 import { TermsComponent } from './terms/terms.component';
 import { SummaryComponent } from './summary/summary.component';
 
-import { AppState } from '../shared/models/app-state';
-import { CustomerReducer } from './reducers/wizard.reducer';
+import { WizardState } from '../shared/models/wizard-state';
+import { CustomerReducer } from './reducers/customer.reducer';
 
 const wizardRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -21,7 +21,7 @@ const wizardRouting: ModuleWithProviders = RouterModule.forChild([
   }
 ]);
 
-export const reducers: ActionReducerMap<AppState> = {
+export const reducers: ActionReducerMap<WizardState> = {
   selectedCustomer: CustomerReducer
 };
 

@@ -4,7 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { Customer } from '../../shared/models/customer';
 import { ArticleMainType } from '../../shared/models/article-main-type';
-import { AppState } from 'src/app/shared/models/app-state';
+import { WizardState } from 'src/app/shared/models/wizard-state';
 import { getCustomer } from '../wizard.selector';
 
 @Component({
@@ -17,7 +17,7 @@ export class ArticleComponent implements OnInit {
 
   selectedCustomer: Observable<Customer>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<WizardState>) {
     this.selectedCustomer = this.store.select(getCustomer);
   }
 

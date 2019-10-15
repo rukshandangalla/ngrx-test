@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
 import { Customer } from '../../shared/models/customer';
-import { AppState } from 'src/app/shared/models/app-state';
+import { WizardState } from 'src/app/shared/models/wizard-state';
 import { SearchCustomerAction, ResetCustomerAction } from '../actions/customer.actions';
 import { getCustomer } from '../wizard.selector';
 
@@ -54,7 +54,7 @@ export class CustomerComponent implements OnInit {
     }
   ];
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<WizardState>) {
     this.selectedCustomer = this.store.select(getCustomer);
   }
 

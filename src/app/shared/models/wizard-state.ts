@@ -1,5 +1,5 @@
 import { Customer } from './customer';
 
-export interface AppState {
+export interface WizardState {
   selectedCustomer: Customer;
 }
