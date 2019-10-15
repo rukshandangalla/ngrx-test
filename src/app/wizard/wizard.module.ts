@@ -1,13 +1,18 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { SharedModule } from "../shared/shared.module";
+import { StoreModule, ActionReducerMap } from '@ngrx/store';
 
-import { WizardComponent } from "./wizard.component";
+import { SharedModule } from '../shared/shared.module';
+
+import { WizardComponent } from './wizard.component';
 
 import { CustomerComponent } from './customer/customer.component';
 import { ArticleComponent } from './article/article.component';
 import { TermsComponent } from './terms/terms.component';
 import { SummaryComponent } from './summary/summary.component';
+
+import { AppState } from '../shared/models/app-state';
+import { CustomerReducer } from './reducers/wizard.reducer';
 
 const wizardRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -16,11 +21,12 @@ const wizardRouting: ModuleWithProviders = RouterModule.forChild([
   }
 ]);
 
+export const reducers: ActionReducerMap<AppState> = {
+  selectedCustomer: CustomerReducer
+};
+
 @NgModule({
   declarations: [WizardComponent, CustomerComponent, ArticleComponent, TermsComponent, SummaryComponent],
-  imports: [
-    SharedModule,
-    wizardRouting
-  ]
+  imports: [SharedModule, StoreModule.forFeature('wizard', reducers), wizardRouting]
 })
-export class WizardModule { }
+export class WizardModule {}

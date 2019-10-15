@@ -5,8 +5,7 @@ import { Store, select } from '@ngrx/store';
 import { Customer } from '../../shared/models/customer';
 import { AppState } from 'src/app/shared/models/app-state';
 import { SearchCustomerAction, ResetCustomerAction } from '../actions/customer.actions';
-
-const customerSelector = state => state.selectedCustomer;
+import { getCustomer } from '../wizard.selector';
 
 // const selectCustomer = (customerList, selectedNic) => ({
 //   type: 'SEARCH',
@@ -56,7 +55,7 @@ export class CustomerComponent implements OnInit {
   ];
 
   constructor(private store: Store<AppState>) {
-    this.selectedCustomer = this.store.select(customerSelector);
+    this.selectedCustomer = this.store.select(getCustomer);
   }
 
   ngOnInit() {}
