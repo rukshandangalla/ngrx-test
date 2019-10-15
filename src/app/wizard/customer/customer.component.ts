@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
 import { Customer } from '../../shared/models/customer';
+import { AppState } from 'src/app/shared/models/app-state';
 //import { SelectCustomer } from "../../shared/actions/wizard.actions";
 
 @Component({
@@ -43,13 +44,14 @@ export class CustomerComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  constructor(private store: Store<AppState>) {}
 
   ngOnInit() {}
 
-  onNicSearch(evt): void {
-    // this.store.dispatch(
-    //   new SelectCustomer(this.customerList.find(cl => cl.nic == this.selectedNic))
-    // );
+  onNicSearch(): void {
+    this.store.dispatch({
+      type: 'ADD',
+      payload: this.customerList.find(cl => cl.nic === this.selectedNic)
+    });
   }
 }
