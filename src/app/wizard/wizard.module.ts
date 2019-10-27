@@ -17,6 +17,8 @@ import { CustomerReducer } from './reducers/customer.reducer';
 import { ArticleReducer } from './reducers/article.reducer';
 import { ProductReducer } from './reducers/product.reducer';
 
+import { CustomerReducerRev } from './reducers/customer.reducer.revamped';
+
 const wizardRouting: ModuleWithProviders = RouterModule.forChild([
   {
     path: '',
@@ -25,7 +27,7 @@ const wizardRouting: ModuleWithProviders = RouterModule.forChild([
 ]);
 
 export const reducers: ActionReducerMap<WizardState> = {
-  selectedCustomer: CustomerReducer,
+  selectedCustomer: CustomerReducerRev,
   selectedArticle: ArticleReducer,
   selectedProduct: ProductReducer
 };
@@ -34,4 +36,4 @@ export const reducers: ActionReducerMap<WizardState> = {
   declarations: [WizardComponent, CustomerComponent, ArticleComponent, TermsComponent, SummaryComponent],
   imports: [SharedModule, StoreModule.forFeature('wizard', reducers), wizardRouting]
 })
-export class WizardModule {}
+export class WizardModule { }

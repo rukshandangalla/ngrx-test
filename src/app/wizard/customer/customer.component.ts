@@ -7,6 +7,8 @@ import { WizardState } from 'src/app/shared/models/wizard-state';
 import { SearchCustomerAction, ResetCustomerAction } from '../actions/customer.actions';
 import { ResetArticleAction } from '../actions/article.actions';
 
+import * as CustomerActions from '../actions/customer.actions.revamped';
+
 import { getCustomer } from '../wizard.selector';
 
 @Component({
@@ -52,11 +54,12 @@ export class CustomerComponent implements OnInit {
     this.selectedCustomer = this.store.select(getCustomer);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   onNicSearch(): void {
-    const customer = this.customerList.find(cl => cl.nic === this.selectedNic);
-    this.store.dispatch(new SearchCustomerAction(customer));
+    const customer: Customer = this.customerList.find(cl => cl.nic === this.selectedNic);
+    // this.store.dispatch(new SearchCustomerAction(customer));
+    this.store.dispatch(CustomerActions.searchCustomerAction({ customer }));
   }
 
   onReset() {
