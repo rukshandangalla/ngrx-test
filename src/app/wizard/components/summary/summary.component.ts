@@ -8,7 +8,7 @@ import { Customer } from 'src/app/shared/models/customer';
 import { ArticleMainType } from 'src/app/shared/models/article-main-type';
 import { Product } from 'src/app/shared/models/product';
 
-import { getCustomer, getArticle, getProduct } from '../wizard.selector';
+import { getCustomer, getArticle, getProduct } from '../../wizard.selector';
 
 @Component({
   selector: 'app-summary',

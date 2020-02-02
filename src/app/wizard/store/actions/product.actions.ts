@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Product } from 'src/app/shared/models/product';
+import { Product } from '../../../shared/models/product';
 
 export enum ProductActionTypes {
   Select = '[Product] Select'

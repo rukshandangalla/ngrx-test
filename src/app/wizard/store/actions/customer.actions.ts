@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { Customer } from 'src/app/shared/models/customer';
+import { Customer } from '../../../shared/models/customer';
 
 export enum CustomerActionTypes {
   Search = '[Customer] Search',

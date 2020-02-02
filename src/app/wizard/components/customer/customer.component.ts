@@ -2,14 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
-import { Customer } from '../../shared/models/customer';
+import { Customer } from '../../../shared/models/customer';
 import { WizardState } from 'src/app/shared/models/wizard-state';
-import { SearchCustomerAction, ResetCustomerAction } from '../actions/customer.actions';
-import { ResetArticleAction } from '../actions/article.actions';
+import { SearchCustomerAction, ResetCustomerAction } from '../../store/actions/customer.actions';
+import { ResetArticleAction } from '../../store/actions/article.actions';
 
-import * as CustomerActions from '../actions/customer.actions.revamped';
+import * as CustomerActions from '../../store/actions/customer.actions.revamped';
 
-import { getCustomer } from '../wizard.selector';
+import { getCustomer } from '../../wizard.selector';
 
 @Component({
   selector: 'app-customer',
