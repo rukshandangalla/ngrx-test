@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Customer } from '../../../shared/models/customer';
-import { ArticleMainType } from '../../../shared/models/article-main-type';
-import { WizardState } from 'src/app/shared/models/wizard-state';
+import { ArticleMainType } from '../../../shared/models/article.main.type';
+import { WizardState } from 'src/app/shared/models/wizard.state';
 import { getCustomer } from '../../wizard.selector';
 
 import { AddArticleAction } from '../../store/actions/article.actions';

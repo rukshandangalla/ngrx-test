@@ -9,3 +9,10 @@
   color: #2196f3;
   font-weight: bold;
 }
+.search-type-wrapper {
+  clear: both;
+}
+.radio {
+  float: left;
+  margin-right: 20px;
+}

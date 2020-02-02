@@ -11,7 +11,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { SummaryComponent } from './components/summary/summary.component';
 
-import { WizardState } from '../shared/models/wizard-state';
+import { WizardState } from '../shared/models/wizard.state';
 
 import { CustomerReducer } from './store/reducers/customer.reducer';
 import { ArticleReducer } from './store/reducers/article.reducer';

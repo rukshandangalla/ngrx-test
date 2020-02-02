@@ -2,10 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { WizardState } from 'src/app/shared/models/wizard-state';
+import { WizardState } from 'src/app/shared/models/wizard.state';
 
 import { Customer } from 'src/app/shared/models/customer';
-import { ArticleMainType } from 'src/app/shared/models/article-main-type';
+import { ArticleMainType } from 'src/app/shared/models/article.main.type';
 import { Product } from 'src/app/shared/models/product';
 
 import { getCustomer, getArticle, getProduct } from '../../wizard.selector';

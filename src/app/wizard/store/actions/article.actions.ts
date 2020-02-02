@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { ArticleMainType } from 'src/app/shared/models/article-main-type';
+import { ArticleMainType } from 'src/app/shared/models/article.main.type';
 
 export enum ArticleActionTypes {
   Select = '[Article] Select',

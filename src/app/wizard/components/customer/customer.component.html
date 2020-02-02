@@ -1,12 +1,28 @@
 <p-fieldset legend="Validate Customer">
   <div class="ui-g">
     <div class="ui-g-12">
+      <h4 style="margin:0 0 10px 0;">Search Type</h4>
+      <div class="search-type-wrapper">
+        <div class="radio">
+          <p-radioButton name="search_type" label="NIC" (onClick)="onSearchTypeChange()"></p-radioButton>
+        </div>
+        <div class="radio">
+          <p-radioButton name="search_type" label="BR" (onClick)="onSearchTypeChange()"></p-radioButton>
+        </div>
+        <div class="radio">
+          <p-radioButton name="search_type" label="Facility Code" (onClick)="onSearchTypeChange()"></p-radioButton>
+        </div>
+      </div>
+    </div>
+    <div class="ui-g-12">
       <span class="ui-float-label search-input">
         <input [(ngModel)]="selectedNic" id="float-input" type="text" size="30" pInputText />
         <label for="float-input">NIC</label>
       </span>
-      <button icon="pi pi-search" (click)="onNicSearch()" pButton type="button" class="ui-button-raised search-btn"></button>
-      <button (click)="onReset()" label="Reset" pButton type="button" class="ui-button-raised ui-button-secondary search-btn"></button>
+      <button icon="pi pi-search" (click)="onNicSearch()" pButton type="button"
+        class="ui-button-raised search-btn"></button>
+      <button (click)="onReset()" label="Reset" pButton type="button"
+        class="ui-button-raised ui-button-secondary search-btn"></button>
     </div>
   </div>
   <div class="ui-g">
@@ -15,7 +31,8 @@
         <tr>
           <td>Name:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedCustomer | async)?.fName }} {{ (selectedCustomer | async)?.lName }}</span>
+            <span class="highlighted-text">{{ (selectedCustomer | async)?.fName }}
+              {{ (selectedCustomer | async)?.lName }}</span>
           </td>
         </tr>
         <tr>

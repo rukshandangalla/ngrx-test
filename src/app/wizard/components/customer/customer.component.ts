@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store, select } from '@ngrx/store';
 
 import { Customer } from '../../../shared/models/customer';
-import { WizardState } from 'src/app/shared/models/wizard-state';
+import { WizardState } from 'src/app/shared/models/wizard.state';
 import { SearchCustomerAction, ResetCustomerAction } from '../../store/actions/customer.actions';
 import { ResetArticleAction } from '../../store/actions/article.actions';
 
@@ -64,8 +64,11 @@ export class CustomerComponent implements OnInit {
 
   onReset() {
     this.selectedNic = '';
-
     this.store.dispatch(new ResetCustomerAction());
     // this.store.dispatch(new ResetArticleAction());
+  }
+
+  onSearchTypeChange(evt: any) {
+
   }
 }

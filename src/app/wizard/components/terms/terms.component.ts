@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Customer } from '../../../shared/models/customer';
-import { WizardState } from 'src/app/shared/models/wizard-state';
+import { WizardState } from 'src/app/shared/models/wizard.state';
 import { getCustomer } from '../../wizard.selector';
 import { Product } from 'src/app/shared/models/product';
 import { AddProductAction } from '../../store/actions/product.actions';
