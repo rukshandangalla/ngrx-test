@@ -1,0 +1,68 @@
+<p-fieldset legend="Summary">
+  <div class="ui-g">
+    <div class="ui-g-4" *ngIf="(customerState$ | async)?.selectedCustomer">
+      <h3>Customer Details</h3>
+      <table>
+        <tr>
+          <td>Name:</td>
+          <td>
+            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.firstName }}
+              {{ (customerState$ | async)?.selectedCustomer?.lastName }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>NIC:</td>
+          <td>
+            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.nic }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Age:</td>
+          <td>
+            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.age }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Address:</td>
+          <td>
+            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.address }}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="ui-g-4" *ngIf="(articleState$ | async)?.selectedArticle">
+      <h3>Article Details</h3>
+      <table>
+        <tr>
+          <td>Code:</td>
+          <td>
+            <span class="highlighted-text">{{ (articleState$ | async)?.selectedArticle?.code }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Description:</td>
+          <td>
+            <span class="highlighted-text">{{ (articleState$ | async)?.selectedArticle?.description }}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="ui-g-4" *ngIf="(productState$ | async)?.selectedProduct">
+      <h3>Product Details</h3>
+      <table>
+        <tr>
+          <td>Code:</td>
+          <td>
+            <span class="highlighted-text">{{ (productState$ | async)?.selectedProduct?.code }}</span>
+          </td>
+        </tr>
+        <tr>
+          <td>Name:</td>
+          <td>
+            <span class="highlighted-text">{{ (productState$ | async)?.selectedProduct?.name }}</span>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</p-fieldset>

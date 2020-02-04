@@ -1,0 +1,18 @@
+.search-input {
+  float: left;
+}
+.search-btn {
+  float: left;
+  margin-left: 5px;
+}
+.highlighted-text {
+  color: #2196f3;
+  font-weight: bold;
+}
+.search-type-wrapper {
+  clear: both;
+}
+.radio {
+  float: left;
+  margin-right: 20px;
+}

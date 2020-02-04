@@ -1,0 +1,18 @@
+<p-fieldset legend="Terms & Conditions">
+  <div class="ui-g" *ngIf="(customerState$ | async).selectedCustomer">
+    <div class="ui-g-12">
+      Name: <span class="highlighted-text">
+        {{ (customerState$ | async)?.selectedCustomer?.firstName }}
+        {{ (customerState$ | async)?.selectedCustomer?.lastName }}
+        ({{ (customerState$ | async)?.selectedCustomer?.nic }})
+      </span>
+    </div>
+  </div>
+  <div class="ui-g">
+    <div class="ui-g-12">
+      <!-- [(ngModel)]="selectedArticle" -->
+      <p-dropdown placeholder="Select Product" [options]="(masterDataState$ | async).masterData.products"
+        optionLabel="name" (onChange)="onProductChange($event)"></p-dropdown>
+    </div>
+  </div>
+</p-fieldset>
