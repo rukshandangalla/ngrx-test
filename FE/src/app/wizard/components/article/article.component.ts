@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
+import * as WizardSelectors from '../../store/selectors/wizard.selector';
+
 import { WizardState } from '../../store/wizard.state';
 import { MasterDataState } from '../../store/reducers/master.data.reducer';
-
-import * as WizardSelectors from '../../store/selectors/wizard.selector';
 import { CustomerState } from '../../store/reducers/customer.reducer';
+
+import * as ArticleActions from '../../store/actions/article.actions';
 
 @Component({
   selector: 'app-article',
@@ -27,6 +29,6 @@ export class ArticleComponent implements OnInit {
   }
 
   onArticleChange(evt: any) {
-    // this.store.dispatch(new AddArticleAction(evt.value));
+    this.store.dispatch(ArticleActions.addArticle({ payload: evt.value }));
   }
 }

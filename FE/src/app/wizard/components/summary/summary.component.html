@@ -6,7 +6,8 @@
         <tr>
           <td>Name:</td>
           <td>
-            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.firstName }} {{ (customerState$ | async)?.selectedCustomer?.lastName }}</span>
+            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.firstName }}
+              {{ (customerState$ | async)?.selectedCustomer?.lastName }}</span>
           </td>
         </tr>
         <tr>
@@ -29,36 +30,36 @@
         </tr>
       </table>
     </div>
-    <div class="ui-g-4">
+    <div class="ui-g-4" *ngIf="(articleState$ | async)?.selectedArticle">
       <h3>Article Details</h3>
       <table>
         <tr>
           <td>Code:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedArticle | async)?.code }}</span>
+            <span class="highlighted-text">{{ (articleState$ | async)?.selectedArticle?.code }}</span>
           </td>
         </tr>
         <tr>
           <td>Description:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedArticle | async)?.description }}</span>
+            <span class="highlighted-text">{{ (articleState$ | async)?.selectedArticle?.description }}</span>
           </td>
         </tr>
       </table>
     </div>
-    <div class="ui-g-4">
+    <div class="ui-g-4" *ngIf="(productState$ | async)?.selectedProduct">
       <h3>Product Details</h3>
       <table>
         <tr>
           <td>Code:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedProduct | async)?.code }}</span>
+            <span class="highlighted-text">{{ (productState$ | async)?.selectedProduct?.code }}</span>
           </td>
         </tr>
         <tr>
           <td>Name:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedProduct | async)?.name }}</span>
+            <span class="highlighted-text">{{ (productState$ | async)?.selectedProduct?.name }}</span>
           </td>
         </tr>
       </table>

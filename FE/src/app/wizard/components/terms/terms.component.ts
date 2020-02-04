@@ -9,6 +9,8 @@ import { WizardState } from '../../store/wizard.state';
 import { MasterDataState } from '../../store/reducers/master.data.reducer';
 import { CustomerState } from '../../store/reducers/customer.reducer';
 
+import * as ProductActions from '../../store/actions/product.actions';
+
 @Component({
   selector: 'app-terms',
   templateUrl: './terms.component.html',
@@ -28,6 +30,6 @@ export class TermsComponent implements OnInit {
   }
 
   onProductChange(evt: any) {
-    // this.store.dispatch(new AddProductAction(evt.value));
+    this.store.dispatch(ProductActions.addProduct({ payload: evt.value }));
   }
 }
