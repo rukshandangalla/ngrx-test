@@ -4,10 +4,6 @@ import { Store, select } from '@ngrx/store';
 
 import { WizardState } from '../../store/wizard.state';
 
-
-import * as CustomerActions from '../../store/actions/customer.actions.revamped';
-
-
 @Component({
   selector: 'app-customer',
   templateUrl: './customer.component.html',

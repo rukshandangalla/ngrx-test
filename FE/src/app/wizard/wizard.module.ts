@@ -1,6 +1,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { StoreModule, ActionReducerMap } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { SharedModule } from '../shared/shared.module';
 
@@ -11,6 +12,7 @@ import { ArticleComponent } from './components/article/article.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { SummaryComponent } from './components/summary/summary.component';
 
+import { WizardEffects } from './store/effects/wizard.effects';
 import { WizardState } from './store/wizard.state';
 
 import { MasterDataReducer } from './store/reducers/master.data.reducer';
@@ -34,6 +36,11 @@ export const reducers: ActionReducerMap<WizardState> = {
 
 @NgModule({
   declarations: [WizardComponent, CustomerComponent, ArticleComponent, TermsComponent, SummaryComponent],
-  imports: [SharedModule, StoreModule.forFeature('wizard', reducers), wizardRouting]
+  imports: [
+    SharedModule,
+    StoreModule.forFeature('wizard', reducers),
+    EffectsModule.forFeature([WizardEffects]),
+    wizardRouting
+  ]
 })
 export class WizardModule { }

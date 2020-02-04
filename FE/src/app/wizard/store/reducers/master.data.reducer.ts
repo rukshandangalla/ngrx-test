@@ -16,9 +16,11 @@ const initialState: MasterDataState = {
 const reducer = createReducer(
   initialState,
   on(MasterDataAction.load, (state) => {
-    console.log(state);
     return { ...state, isLoading: true };
-  })
+  }),
+  on(MasterDataAction.loadComplete, (state, { payload }) => {
+    return { ...state, isLoading: false, masterData: payload };
+  }),
 );
 
 export function MasterDataReducer(state: MasterDataState | undefined, action: Action) {
