@@ -10,6 +10,7 @@
   </div>
   <div class="ui-g">
     <div class="ui-g-12">
+      <!-- [(ngModel)]="selectedArticle" -->
       <p-dropdown placeholder="Select Product" [options]="(masterDataState$ | async).masterData.products"
         optionLabel="name" (onChange)="onProductChange($event)"></p-dropdown>
     </div>

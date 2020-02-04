@@ -30,6 +30,6 @@ export class TermsComponent implements OnInit {
   }
 
   onProductChange(evt: any) {
-    this.store.dispatch(ProductActions.addProduct({ payload: evt.value }));
+    this.store.dispatch(ProductActions.add({ payload: evt.value }));
   }
 }

@@ -29,7 +29,7 @@ const rootRouting: ModuleWithProviders = RouterModule.forRoot(
     StoreModule.forRoot({}),
     EffectsModule.forRoot([]),
     StoreDevtoolsModule.instrument({
-      maxAge: 5
+      maxAge: 20
     }),
     HttpClientModule,
     BrowserModule,

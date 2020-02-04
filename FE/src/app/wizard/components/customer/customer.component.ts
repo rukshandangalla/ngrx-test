@@ -3,6 +3,8 @@ import { Observable } from 'rxjs';
 import { Store, ActionsSubject } from '@ngrx/store';
 
 import * as CustomerActions from '../../store/actions/customer.actions';
+import * as ArticleActions from '../../store/actions/article.actions';
+import * as ProductActions from '../../store/actions/product.actions';
 
 import { WizardState } from '../../store/wizard.state';
 import { MasterDataState } from '../../store/reducers/master.data.reducer';
@@ -52,6 +54,8 @@ export class CustomerComponent implements OnInit {
   onReset() {
     this.selectedNic = '';
     this.store.dispatch(CustomerActions.reset());
+    this.store.dispatch(ArticleActions.reset());
+    this.store.dispatch(ProductActions.reset());
   }
 
   onSearchTypeChange(evt: any) {

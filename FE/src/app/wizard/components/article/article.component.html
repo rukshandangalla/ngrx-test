@@ -10,7 +10,9 @@
   </div>
   <div class="ui-g">
     <div class="ui-g-12">
-      <p-dropdown placeholder="Select Article" [options]="(this.masterDataState$ | async).masterData?.articleMainTypes" optionLabel="description" (onChange)="onArticleChange($event)"></p-dropdown>
+      <!-- [(ngModel)]="selectedArticle" -->
+      <p-dropdown placeholder="Select Article" [options]="(masterDataState$ | async).masterData?.articleMainTypes"
+        optionLabel="description" (onChange)="onArticleChange($event)"></p-dropdown>
     </div>
   </div>
 </p-fieldset>

@@ -12,10 +12,10 @@ const initialState: ArticleState = {
 
 const reducer = createReducer(
   initialState,
-  on(ArticleActions.addArticle, (state, { payload: article }) => {
+  on(ArticleActions.add, (state, { payload: article }) => {
     return { ...state, selectedArticle: article };
   }),
-  on(ArticleActions.resetArticle, (state) => {
+  on(ArticleActions.reset, (state) => {
     return { ...state, ...initialState };
   })
 );

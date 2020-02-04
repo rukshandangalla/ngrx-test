@@ -12,8 +12,11 @@ const initialState: ProductState = {
 
 const reducer = createReducer(
   initialState,
-  on(ProductActions.addProduct, (state, { payload: product }) => {
+  on(ProductActions.add, (state, { payload: product }) => {
     return { ...state, selectedProduct: product };
+  }),
+  on(ProductActions.reset, (state) => {
+    return { ...state, ...initialState };
   })
 );
 
