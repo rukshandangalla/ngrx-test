@@ -11,13 +11,12 @@ import { ArticleComponent } from './components/article/article.component';
 import { TermsComponent } from './components/terms/terms.component';
 import { SummaryComponent } from './components/summary/summary.component';
 
-import { WizardState } from '../shared/models/wizard.state';
+import { WizardState } from './store/wizard.state';
 
+import { MasterDataReducer } from './store/reducers/master.data.reducer';
 import { CustomerReducer } from './store/reducers/customer.reducer';
 import { ArticleReducer } from './store/reducers/article.reducer';
 import { ProductReducer } from './store/reducers/product.reducer';
-
-import { CustomerReducerRev } from './store/reducers/customer.reducer.revamped';
 
 const wizardRouting: ModuleWithProviders = RouterModule.forChild([
   {
@@ -27,9 +26,10 @@ const wizardRouting: ModuleWithProviders = RouterModule.forChild([
 ]);
 
 export const reducers: ActionReducerMap<WizardState> = {
-  selectedCustomer: CustomerReducerRev,
-  selectedArticle: ArticleReducer,
-  selectedProduct: ProductReducer
+  masterDataState: MasterDataReducer,
+  customerState: CustomerReducer,
+  articleState: ArticleReducer,
+  productState: ProductReducer
 };
 
 @NgModule({

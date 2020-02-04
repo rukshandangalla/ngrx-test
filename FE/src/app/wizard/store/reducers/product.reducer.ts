@@ -1,10 +1,25 @@
-import { ProductActionTypes, ProductActionUnion } from '../actions/product.actions';
+import { Action, createReducer, on } from '@ngrx/store';
+import * as ProductActions from '../actions/product.actions';
+import { Product } from '../../../shared/models/product';
 
-export const ProductReducer = (state = null, action: ProductActionUnion) => {
-  switch (action.type) {
-    case ProductActionTypes.Select:
-      return { ...state, ...action.payload };
-    default:
-      return state;
-  }
+export interface ProductState {
+  selectedProduct: Product;
+}
+
+const initialState: ProductState = {
+  selectedProduct: null
 };
+
+const reducer = createReducer(
+  initialState,
+  on(ProductActions.addProduct, (state, { payload: product }) => {
+    console.log(product);
+    return {
+      ...state, ...product
+    };
+  })
+);
+
+export function ProductReducer(state: ProductState | undefined, action: Action) {
+  return reducer(state, action);
+}

@@ -8222,11 +8222,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Projects\\RnD\\NGRX\\NGRX-Support-API\\NGRX-Support-API.csproj",
+      "projectUniqueName": "D:\\Projects\\RnD\\NGRX\\app-ngrx\\BE\\NGRX-Support-API\\NGRX-Support-API.csproj",
       "projectName": "NGRX-Support-API",
-      "projectPath": "D:\\Projects\\RnD\\NGRX\\NGRX-Support-API\\NGRX-Support-API.csproj",
+      "projectPath": "D:\\Projects\\RnD\\NGRX\\app-ngrx\\BE\\NGRX-Support-API\\NGRX-Support-API.csproj",
       "packagesPath": "C:\\Users\\rukshand\\.nuget\\packages\\",
-      "outputPath": "D:\\Projects\\RnD\\NGRX\\NGRX-Support-API\\obj\\",
+      "outputPath": "D:\\Projects\\RnD\\NGRX\\app-ngrx\\BE\\NGRX-Support-API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

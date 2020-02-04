@@ -7,7 +7,7 @@ namespace NGRX_Support_API.Controllers
     [Produces("application/json")]
     [Route("api/[controller]/[action]")]
     [ApiController]
-    public class CustomerController : ControllerBase
+    public class WizardController : ControllerBase
     {
         #region DUMMY DATA
         // Dummy Customer Data

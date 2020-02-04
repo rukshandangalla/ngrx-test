@@ -4,10 +4,7 @@ import { Store } from '@ngrx/store';
 
 import { Customer } from '../../../shared/models/customer';
 import { ArticleMainType } from '../../../shared/models/article.main.type';
-import { WizardState } from 'src/app/shared/models/wizard.state';
-import { getCustomer } from '../../wizard.selector';
-
-import { AddArticleAction } from '../../store/actions/article.actions';
+import { WizardState } from '../../store/wizard.state';
 
 @Component({
   selector: 'app-article',
@@ -20,51 +17,14 @@ export class ArticleComponent implements OnInit {
   selectedCustomer: Observable<Customer>;
 
   constructor(private store: Store<WizardState>) {
-    this.selectedCustomer = this.store.select(getCustomer);
+    // this.selectedCustomer = this.store.select(getCustomer);
   }
 
   ngOnInit() {
-    this.articleMainTypes = [
-      {
-        id: 1,
-        code: '01',
-        description: 'Anklet',
-        isActive: true
-      },
-      {
-        id: 2,
-        code: '02',
-        description: 'Chain',
-        isActive: true
-      },
-      {
-        id: 3,
-        code: '03',
-        description: 'Ring',
-        isActive: true
-      },
-      {
-        id: 4,
-        code: '04',
-        description: 'Bangle',
-        isActive: true
-      },
-      {
-        id: 5,
-        code: '05',
-        description: 'Bracelet',
-        isActive: true
-      },
-      {
-        id: 6,
-        code: '06',
-        description: 'Coin',
-        isActive: true
-      }
-    ];
+
   }
 
   onArticleChange(evt: any) {
-    this.store.dispatch(new AddArticleAction(evt.value));
+    // this.store.dispatch(new AddArticleAction(evt.value));
   }
 }
