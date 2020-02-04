@@ -13,10 +13,19 @@ namespace NGRX_Support_API.Controllers
         // Dummy Customer Data
         readonly List<Customer> customerList = new List<Customer>()
         {
-            new Customer { FirstName = "Rukshan", LastName = "Dangalla", Age = 30, NIC = "1V", Address = "Maharagama"},
-            new Customer { FirstName = "Maheesha", LastName = "Prasadi", Age = 27, NIC = "2V", Address = "Boralasgamuwa" },
-            new Customer { FirstName = "Chathuranga", LastName = "Basnayake", Age = 23, NIC = "3V", Address = "Homagama" },
-            new Customer { FirstName = "Pubudu", LastName = "Chathuranga", Age = 23, NIC = "4V", Address = "Nugegoda" }
+            new Customer { Id = 1, FirstName = "Rukshan", LastName = "Dangalla", Age = 30, NIC = "1V", Address = "Maharagama"},
+            new Customer { Id = 2, FirstName = "Maheesha", LastName = "Prasadi", Age = 27, NIC = "2V", Address = "Boralasgamuwa" },
+            new Customer { Id = 3, FirstName = "Chathuranga", LastName = "Basnayake", Age = 23, NIC = "3V", Address = "Homagama" },
+            new Customer { Id = 4, FirstName = "Pubudu", LastName = "Chathuranga", Age = 23, NIC = "4V", Address = "Nugegoda" }
+        };
+
+        // Dummy Customer Address Data
+        readonly List<Address> customerAddressList = new List<Address>()
+        {
+            new Address { CustomerId = 1, Street = "1A", City = "Maharagama"},
+            new Address { CustomerId = 2, Street = "2B", City = "Boralasgamuwa"},
+            new Address { CustomerId = 3, Street = "3C", City = "Homagama"},
+            new Address { CustomerId = 4, Street = "4D", City = "Nugegoda"},
         };
 
         // Dummy Product Data
@@ -65,6 +74,13 @@ namespace NGRX_Support_API.Controllers
         {
             var selectedCustomer = customerList.Find(c => c.NIC == nic);
             return Ok(selectedCustomer);
+        }
+
+        [HttpGet("{customerId}", Name = "GetAddressByCustomerId")]
+        public IActionResult GetAddressByCustomerId(int customerId)
+        {
+            var selectedAddress = customerAddressList.Find(ca => ca.CustomerId == customerId);
+            return Ok(selectedAddress);
         }
     }
 }
