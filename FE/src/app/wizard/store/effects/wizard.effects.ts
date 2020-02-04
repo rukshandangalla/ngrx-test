@@ -7,7 +7,9 @@ import { EMPTY } from 'rxjs';
 
 import { WizardState } from '../wizard.state';
 import { WizardService } from '../../../shared/services/wizard.service';
-import * as MasterDataAction from '../actions/master.data.actions';
+
+import * as MasterDataActions from '../actions/master.data.actions';
+import * as CustomerActions from '../actions/customer.actions';
 
 @Injectable()
 export class WizardEffects {
@@ -18,12 +20,24 @@ export class WizardEffects {
   ) { }
 
   loadWizardMasterData$ = createEffect(() => this.actions$.pipe(
-    ofType(MasterDataAction.load),
+    ofType(MasterDataActions.load),
     mergeMap(() => this.wizardService.getMasterData().pipe(
       map(masterData => masterData),
     )),
     mergeMap((masterData) => [
-      MasterDataAction.loadComplete({ payload: masterData }),
+      MasterDataActions.loadComplete({ payload: masterData }),
+    ]),
+    catchError(() => EMPTY)
+  ));
+
+  searchCustomerByNIC$ = createEffect(() => this.actions$.pipe(
+    ofType(CustomerActions.searStart),
+    map(nic => nic.payload),
+    mergeMap((nic) => this.wizardService.getCustomerByNIC(nic).pipe(
+      map(customer => customer),
+    )),
+    mergeMap((customer) => [
+      CustomerActions.searchComplete({ payload: customer }),
     ]),
     catchError(() => EMPTY)
   ));

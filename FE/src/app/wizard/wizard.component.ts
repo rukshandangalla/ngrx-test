@@ -21,10 +21,11 @@ export class WizardComponent implements OnInit {
   items: MenuItem[];
   activeIndex = 0;
 
-  ngOnInit() {
-
+  constructor(private store: Store<MasterDataState>) {
     this.masterDataState$ = this.store.select(WizardSelectors.getMasterDataState);
+  }
 
+  ngOnInit() {
     this.items = [
       { label: 'Validate Customer', command: (event: any) => { this.activeIndex = 0; } },
       { label: 'Article Details', command: (event: any) => { this.activeIndex = 1; } },
@@ -35,8 +36,6 @@ export class WizardComponent implements OnInit {
     // Loading Master Data
     this.store.dispatch(MasterDataAction.load());
   }
-
-  constructor(private store: Store<MasterDataState>) { }
 
   onPrevious(evt: any): void {
     if (this.activeIndex > 0) {

@@ -3,14 +3,8 @@
     <div class="ui-g-12">
       <h4 style="margin:0 0 10px 0;">Search Type</h4>
       <div class="search-type-wrapper">
-        <div class="radio">
-          <p-radioButton name="search_type" label="NIC" (onClick)="onSearchTypeChange()"></p-radioButton>
-        </div>
-        <div class="radio">
-          <p-radioButton name="search_type" label="BR" (onClick)="onSearchTypeChange()"></p-radioButton>
-        </div>
-        <div class="radio">
-          <p-radioButton name="search_type" label="Facility Code" (onClick)="onSearchTypeChange()"></p-radioButton>
+        <div class="radio" *ngFor="let searchType of (masterDataState$ | async).masterData.searchTypes">
+          <p-radioButton name="search_type" [label]="searchType.label" (onClick)="onSearchTypeChange(searchType)"></p-radioButton>
         </div>
       </div>
     </div>
@@ -27,24 +21,26 @@
   </div>
   <div class="ui-g">
     <div class="ui-g-12">
-      <table *ngIf="selectedCustomer | async">
+      <table *ngIf="(customerState$ | async).selectedCustomer">
         <tr>
           <td>Name:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedCustomer | async)?.fName }}
-              {{ (selectedCustomer | async)?.lName }}</span>
+            <span class="highlighted-text">
+              {{ (customerState$ | async)?.selectedCustomer?.firstName }}
+              {{ (customerState$ | async)?.selectedCustomer?.lastName }}
+            </span>
           </td>
         </tr>
         <tr>
           <td>NIC:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedCustomer | async)?.nic }}</span>
+            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.nic }}</span>
           </td>
         </tr>
         <tr>
           <td>Address:</td>
           <td>
-            <span class="highlighted-text">{{ (selectedCustomer | async)?.address }}</span>
+            <span class="highlighted-text">{{ (customerState$ | async)?.selectedCustomer?.address }}</span>
           </td>
         </tr>
       </table>
