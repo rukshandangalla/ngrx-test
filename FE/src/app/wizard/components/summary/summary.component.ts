@@ -2,11 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
+import * as WizardSelectors from '../../store/selectors/wizard.selector';
 import { WizardState } from '../../store/wizard.state';
-
-import { Customer } from 'src/app/shared/models/customer';
-import { ArticleMainType } from 'src/app/shared/models/article.main.type';
-import { Product } from 'src/app/shared/models/product';
+import { CustomerState } from '../../store/reducers/customer.reducer';
 
 @Component({
   selector: 'app-summary',
@@ -14,19 +12,12 @@ import { Product } from 'src/app/shared/models/product';
   styleUrls: ['./summary.component.css']
 })
 export class SummaryComponent implements OnInit {
-  selectedCustomer: Observable<Customer>;
-  selectedArticle: Observable<ArticleMainType>;
-  selectedProduct: Observable<Product>;
+
+  customerState$: Observable<CustomerState>;
 
   constructor(private store: Store<WizardState>) {
-    // this.selectedCustomer = this.store.select(getCustomer);
-    // this.selectedArticle = this.store.select(getArticle);
-    // this.selectedProduct = this.store.select(getProduct);
-
-    // this.store.subscribe(data => {
-    //   console.log(data);
-    // });
+    this.customerState$ = this.store.select(WizardSelectors.getCustomerState);
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 }

@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { Customer } from '../../../shared/models/customer';
-import { WizardState } from '../../store/wizard.state';
-import { Product } from 'src/app/shared/models/product';
-
-import { MasterDataState } from '../../store/reducers/master.data.reducer';
-
 import * as WizardSelectors from '../../store/selectors/wizard.selector';
+
+import { WizardState } from '../../store/wizard.state';
+import { MasterDataState } from '../../store/reducers/master.data.reducer';
+import { CustomerState } from '../../store/reducers/customer.reducer';
 
 @Component({
   selector: 'app-terms',
@@ -17,18 +15,19 @@ import * as WizardSelectors from '../../store/selectors/wizard.selector';
   styleUrls: ['./terms.component.css']
 })
 export class TermsComponent implements OnInit {
-  products: Product[];
-  selectedCustomer: Observable<Customer>;
+
   masterDataState$: Observable<MasterDataState>;
+  customerState$: Observable<CustomerState>;
 
   constructor(private store: Store<WizardState>) {
     this.masterDataState$ = this.store.select(WizardSelectors.getMasterDataState);
+    this.customerState$ = this.store.select(WizardSelectors.getCustomerState);
   }
 
   ngOnInit() {
   }
 
-  onProductChange(evt) {
+  onProductChange(evt: any) {
     // this.store.dispatch(new AddProductAction(evt.value));
   }
 }
