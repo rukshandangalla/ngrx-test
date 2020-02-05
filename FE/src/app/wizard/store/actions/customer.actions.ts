@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 import { Customer } from '../../../shared/models/customer';
 
-export const searStart = createAction(
+export const searchStart = createAction(
   '[Customer] Search',
   props<{ payload: string }>()
 );

@@ -16,7 +16,7 @@ const initialState: CustomerState = {
 
 const reducer = createReducer(
   initialState,
-  on(CustomerActions.searStart, (state, { payload: nic }) => {
+  on(CustomerActions.searchStart, (state, { payload: nic }) => {
     return { ...state, isLoading: true, searchedNIC: nic };
   }),
   on(CustomerActions.searchComplete, (state, { payload: customer }) => {

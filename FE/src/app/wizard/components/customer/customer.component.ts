@@ -33,7 +33,7 @@ export class CustomerComponent implements OnInit {
     // this will trigger in every state change
     this.customerState$.subscribe(
       data => {
-        // console.log(data);
+        console.log(data);
       }
     );
 
@@ -41,14 +41,14 @@ export class CustomerComponent implements OnInit {
     this.action.subscribe(
       action => {
         if (action && action.type && action.type === CustomerActions.searchComplete.type) {
-          // console.log('SEARCH COMPLETED!');
+          console.log('SEARCH COMPLETED!');
         }
       }
     );
   }
 
   onNicSearch(): void {
-    this.store.dispatch(CustomerActions.searStart({ payload: this.selectedNic }));
+    this.store.dispatch(CustomerActions.searchStart({ payload: this.selectedNic }));
   }
 
   onReset() {
