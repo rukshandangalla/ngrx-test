@@ -31,7 +31,7 @@ export class WizardEffects {
   ));
 
   searchCustomerByNIC$ = createEffect(() => this.actions$.pipe(
-    ofType(CustomerActions.searStart),
+    ofType(CustomerActions.searchStart),
     map(nic => nic.payload),
     mergeMap((nic) => this.wizardService.getCustomerByNIC(nic).pipe(
       map(customer => customer),
